@@ -1,8 +1,13 @@
 //business logic
 var pigLatin = function(englishWord) {
-    return false;
-  };
 
+  if (typeof(englishWord) !== "string") {
+    return englishWord;
+  } else {
+    return false
+  }
+
+  };
 
 
 
@@ -15,8 +20,16 @@ $(document).ready(function() {
     var englishWord = $("input#word").val();
     var result = pigLatin(englishWord);
 
-    $("#result").text(result);
+    $(".word").text(englishWord);
 
-  })
+      if (!result) {                 // same as writing if (result === false)
+        $(".not").text("not");
+      } else {
+        $(".not").text("");
+      }
+
+      $("#result").show();
+
+  });
 
 });
